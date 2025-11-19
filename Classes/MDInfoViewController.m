@@ -7,6 +7,7 @@
 //
 
 #import "MDInfoViewController.h"
+#import "AppInfo.h"
 
 @implementation MDInfoViewController
 
@@ -15,11 +16,39 @@
 -(void)viewDidLoad;
 {
 	[super viewDidLoad];
+	
+	CGFloat labelY = 240;
+	CGFloat labelPad = 8;
+	CGRect bounds = [[self view] bounds];
+	UIView *view = [self view];
+	
+	// Configure the image
+	UIImage *image = [UIImage imageNamed:@"mamedaifuku.png"];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+	[imageView setFrame:CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width, labelY)];
+	[imageView setContentMode:UIViewContentModeCenter];
+	[view addSubview:imageView];
+	
+	// Configure Label
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(bounds.origin.x+labelPad, 
+																														 bounds.origin.y+labelY+labelPad, 
+																														 bounds.size.width-labelPad, 
+																														 0)];
+	[label setText:[AppInfo appEnvironmentDetails]];
+	[label setNumberOfLines:0];
+	[label sizeToFit];
+	[view addSubview:label];
+	
+	// Set background color
+	[view setBackgroundColor:[UIColor whiteColor]];
+	/*
 	if ([self language] == 0) {
 		[[self view] setBackgroundColor:[UIColor greenColor]];
 	} else {
 		[[self view] setBackgroundColor:[UIColor blueColor]];
 	}
+	 */
+	
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;

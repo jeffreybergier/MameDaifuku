@@ -11,6 +11,6 @@
 
 @interface AppInfo : NSObject
 
-+ (NSString *)appEnvironmentDetails;
++(NSString*)appEnvironmentDetails;
 
 @end
