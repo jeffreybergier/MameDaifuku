@@ -7,30 +7,48 @@
 //
 
 #import "MDAppDelegate.h"
-#import "AppInfo.h"
+#import "MDInfoViewController.h"
+
+@interface UITabBarController (MameDaifuku)
++(id)MD_new;
+@end
+
+@implementation UITabBarController (MameDaifuku)
++(id)MD_new;
+{
+  UITabBarController *controller = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
+	NSMutableArray *viewControllers = [[NSMutableArray alloc] initWithObjects:
+																		 [[[MDInfoViewController alloc] initWithNibName:nil bundle:nil] autorelease],
+																		 [[[MDInfoViewController alloc] initWithNibName:nil bundle:nil] autorelease],
+																		 nil]; 
+	[[viewControllers objectAtIndex:0] setLanguage:0];
+	[[viewControllers objectAtIndex:1] setLanguage:1];
+	[controller setViewControllers:viewControllers];
+	return controller;
+}
+@end
 
 @implementation MDAppDelegate
 
-@synthesize window;
-@synthesize rootViewController;
+@synthesize window = _window;
+@synthesize tabBarController = _tabBarController;
 
 -(void)applicationDidFinishLaunching:(UIApplication *)application;
 {
-	UIViewController *_rootViewController = [[UIViewController alloc] initWithNibName:nil	bundle:nil];
-	UIWindow *_window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	UIView *_rootView = [_rootViewController view];
-	[self setWindow:_window];
-	[self setRootViewController:_rootViewController];
-	[_rootView setBackgroundColor:[UIColor redColor]];
-	[_window addSubview:_rootView];
-	[_window makeKeyAndVisible];
+	UITabBarController *tabBarController = [UITabBarController MD_new];
+	UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	UIView *rootView = [tabBarController view];
+	[self setWindow:window];
+	[self setTabBarController:tabBarController];
+	[window addSubview:rootView];
+	[window makeKeyAndVisible];
 }
 
 
 -(void)dealloc;
 {
-	[rootViewController release];
-	[window release];
+	[_tabBarController release];
+	[_window release];
 	[super dealloc];
 }
 

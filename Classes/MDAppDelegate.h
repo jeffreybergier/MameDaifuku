@@ -10,11 +10,11 @@
 
 @interface MDAppDelegate: NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 {
-	UIWindow *window;
-	UIViewController *rootViewController;
+	UIWindow *_window;
+	UITabBarController *_tabBarController;
 }
 
 @property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) UIViewController *rootViewController;
+@property (nonatomic, retain) UITabBarController *tabBarController;
 
 @end
