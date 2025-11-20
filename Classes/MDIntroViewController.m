@@ -6,12 +6,9 @@
 //  Copyright 2025 __MyCompanyName__. All rights reserved.
 //
 
-#import "MDInfoViewController.h"
-#import "AppInfo.h"
+#import "MDIntroViewController.h"
 
-@implementation MDInfoViewController
-
-@synthesize language = _language;
+@implementation MDIntroViewController
 
 -(void)viewDidLoad;
 {
@@ -21,6 +18,11 @@
 	CGFloat labelPad = 8;
 	CGRect bounds = [[self view] bounds];
 	UIView *view = [self view];
+	NSString *introText = @"Hello, I'm MameDaifuku, an iPhone App. I've been "
+	                      @"developed and deployed on a very special iMac G4 "
+	                      @"called IchigoDaifuku. Even though Apple never "
+	                      @"allowed iPhone development on PowerPC Macs, I think "
+	                      @"I am proof that it is indeed possible.";
 	
 	// Configure the image
 	UIImage *image = [UIImage imageNamed:@"mamedaifuku.png"];
@@ -34,21 +36,13 @@
 																														 bounds.origin.y+labelY+labelPad, 
 																														 bounds.size.width-labelPad, 
 																														 0)];
-	[label setText:[AppInfo appEnvironmentDetails]];
+	[label setText:introText];
 	[label setNumberOfLines:0];
 	[label sizeToFit];
 	[view addSubview:label];
 	
 	// Set background color
 	[view setBackgroundColor:[UIColor whiteColor]];
-	/*
-	if ([self language] == 0) {
-		[[self view] setBackgroundColor:[UIColor greenColor]];
-	} else {
-		[[self view] setBackgroundColor:[UIColor blueColor]];
-	}
-	 */
-	
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;

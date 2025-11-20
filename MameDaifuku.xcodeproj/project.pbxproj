@@ -13,8 +13,9 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		8C8DEE802ECCAFA3002FADF8 /* mamedaifuku.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8DEE7F2ECCAFA3002FADF8 /* mamedaifuku.png */; };
-		8C8DEEA82ECCB304002FADF8 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8DEEA72ECCB304002FADF8 /* AppInfo.m */; };
-		8CC514BC2ECDF176009FF279 /* MDInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC514BB2ECDF176009FF279 /* MDInfoViewController.m */; };
+		8CC514BC2ECDF176009FF279 /* MDIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC514BB2ECDF176009FF279 /* MDIntroViewController.m */; };
+		8CC5165B2ECF3BF8009FF279 /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC516592ECF3BF8009FF279 /* SystemInfo.m */; };
+		8CC516902ECF409B009FF279 /* MDInfoTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5168F2ECF409B009FF279 /* MDInfoTableViewDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +27,13 @@
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C8DEE7F2ECCAFA3002FADF8 /* mamedaifuku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mamedaifuku.png; sourceTree = "<group>"; };
-		8C8DEEA62ECCB304002FADF8 /* AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfo.h; sourceTree = "<group>"; };
-		8C8DEEA72ECCB304002FADF8 /* AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfo.m; sourceTree = "<group>"; };
 		8CC514B32ECDEFEA009FF279 /* MameDaifuku_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MameDaifuku_Prefix.pch; sourceTree = "<group>"; };
-		8CC514BA2ECDF176009FF279 /* MDInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInfoViewController.h; sourceTree = "<group>"; };
-		8CC514BB2ECDF176009FF279 /* MDInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDInfoViewController.m; sourceTree = "<group>"; };
+		8CC514BA2ECDF176009FF279 /* MDIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDIntroViewController.h; sourceTree = "<group>"; };
+		8CC514BB2ECDF176009FF279 /* MDIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDIntroViewController.m; sourceTree = "<group>"; };
+		8CC516592ECF3BF8009FF279 /* SystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfo.m; sourceTree = "<group>"; };
+		8CC5165A2ECF3BF8009FF279 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
+		8CC5168E2ECF409B009FF279 /* MDInfoTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInfoTableViewDataSource.h; sourceTree = "<group>"; };
+		8CC5168F2ECF409B009FF279 /* MDInfoTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDInfoTableViewDataSource.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,10 +56,12 @@
 			children = (
 				1D3623240D0F684500981E51 /* MDAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MDAppDelegate.m */,
-				8C8DEEA62ECCB304002FADF8 /* AppInfo.h */,
-				8C8DEEA72ECCB304002FADF8 /* AppInfo.m */,
-				8CC514BA2ECDF176009FF279 /* MDInfoViewController.h */,
-				8CC514BB2ECDF176009FF279 /* MDInfoViewController.m */,
+				8CC514BA2ECDF176009FF279 /* MDIntroViewController.h */,
+				8CC514BB2ECDF176009FF279 /* MDIntroViewController.m */,
+				8CC5168E2ECF409B009FF279 /* MDInfoTableViewDataSource.h */,
+				8CC5168F2ECF409B009FF279 /* MDInfoTableViewDataSource.m */,
+				8CC516592ECF3BF8009FF279 /* SystemInfo.m */,
+				8CC5165A2ECF3BF8009FF279 /* SystemInfo.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -182,8 +187,9 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* MDAppDelegate.m in Sources */,
-				8C8DEEA82ECCB304002FADF8 /* AppInfo.m in Sources */,
-				8CC514BC2ECDF176009FF279 /* MDInfoViewController.m in Sources */,
+				8CC514BC2ECDF176009FF279 /* MDIntroViewController.m in Sources */,
+				8CC5165B2ECF3BF8009FF279 /* SystemInfo.m in Sources */,
+				8CC516902ECF409B009FF279 /* MDInfoTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

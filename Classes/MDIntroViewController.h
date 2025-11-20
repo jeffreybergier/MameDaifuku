@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MDInfoViewController: UIViewController 
+@interface MDIntroViewController: UIViewController 
 {
-  NSInteger _language;
 }
 
-@property (nonatomic) NSInteger language;
 
 @end

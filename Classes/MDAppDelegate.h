@@ -12,9 +12,11 @@
 {
 	UIWindow *_window;
 	UITabBarController *_tabBarController;
+	id _infoTableViewDataSource;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UITabBarController *tabBarController;
+@property (nonatomic, retain) id infoTableViewDataSource;
 
 @end
