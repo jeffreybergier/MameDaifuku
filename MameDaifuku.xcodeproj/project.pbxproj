@@ -60,8 +60,8 @@
 				8CC514BB2ECDF176009FF279 /* MDIntroViewController.m */,
 				8CC5168E2ECF409B009FF279 /* MDInfoTableViewDataSource.h */,
 				8CC5168F2ECF409B009FF279 /* MDInfoTableViewDataSource.m */,
-				8CC516592ECF3BF8009FF279 /* SystemInfo.m */,
 				8CC5165A2ECF3BF8009FF279 /* SystemInfo.h */,
+				8CC516592ECF3BF8009FF279 /* SystemInfo.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

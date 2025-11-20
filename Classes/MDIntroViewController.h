@@ -10,8 +10,4 @@
 
 
 @interface MDIntroViewController: UIViewController 
-{
-}
-
-
 @end

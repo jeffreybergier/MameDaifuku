@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface MDInfoTableViewDataSource: NSObject
+{
+	NSDateFormatter *_dateFormatter;
+	NSNumberFormatter *_numberFormatter;
+}
+
+@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, retain) NSNumberFormatter *numberFormatter;
+
 @end
 
 @interface MDInfoTableViewDataSource (UITableViewDataSource) <UITableViewDataSource>
