@@ -24,13 +24,13 @@ NSString *SISGetHWMachine(void);
 NSString *SISGetHWModel(void);
 
 // Returns the number of physical CPU cores (specifier: "hw.ncpu").
-NSInteger SISGetHWNCPU(void);
+NSUInteger SISGetHWNCPU(void);
 
 // Returns the total physical memory (RAM) in bytes (specifier: "hw.memsize").
-uint64_t SISGetHWMemSize(void);
+NSUInteger SISGetHWMemSize(void);
 
 // Returns the memory page size in bytes (specifier: "hw.pagesize").
-NSInteger SISGetHWPageSize(void);
+NSUInteger SISGetHWPageSize(void);
 
 
 // --- Kernel (kern) Specifiers (sysctl) ---
