@@ -7,6 +7,7 @@
 //
 
 #import "MDInfoTableViewDataSource.h"
+#import "MDInfoTableViewCells.h"
 #import "SystemInfo.h"
 
 typedef enum {
@@ -14,6 +15,10 @@ typedef enum {
 	MDInfoTableViewDataSourceSectionRun,
 	MDInfoTableViewDataSourceSectionHardware,
 } MDInfoTableViewDataSourceSection;
+
+typedef enum {
+	MDInfoTableViewDataSourceRowRunOS,
+} MDInfoTableViewDataSourceRowRun;
 
 typedef enum {
 	MDInfoTableViewDataSourceRowHardwareMachine,
@@ -42,6 +47,32 @@ typedef enum {
 	[_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 	[_numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	return self;
+}
+
+-(void)populateRunCell:(MDInfoTableViewCellSegmented*)cell atIndex:(NSInteger)index;
+{
+	NSString *key = nil;
+	NSString *rawValue = nil;
+	UISegmentedControl *segment = [cell segment];
+	NSInteger selectedSegment = -1;
+	switch (index) {
+		case MDInfoTableViewDataSourceRowRunOS:
+			key = @"iPhoneOS";
+			// TODO: Change this to use 2,3,4,5,6
+			[segment insertSegmentWithTitle:@"2.2.1" atIndex:0 animated:NO];
+			[segment insertSegmentWithTitle:@"3.0" atIndex:1 animated:NO];
+			[segment insertSegmentWithTitle:@"3.1" atIndex:2 animated:NO];
+			[segment insertSegmentWithTitle:@"3.1.3" atIndex:3 animated:NO];
+			// Change this to use integer and then just base the answer on the first digit
+			rawValue = SISGetCurrentOSVersion();
+			if ([rawValue isEqualToString:@"2.2.1"]) { selectedSegment = 0; }
+			else if ([rawValue isEqualToString:@"3.0"]) { selectedSegment = 1; }
+			else if ([rawValue isEqualToString:@"3.1"]) { selectedSegment = 2; }
+			else if ([rawValue isEqualToString:@"3.1.3"]) { selectedSegment = 3; }
+			break;
+	}
+	[segment setSelectedSegmentIndex:selectedSegment];
+	[[cell label] setText:key];	
 }
 
 -(void)populateSystemCell:(UITableViewCell*)cell atIndex:(NSInteger)index;
@@ -88,8 +119,10 @@ typedef enum {
 			value = [df stringFromDate:SISGetKernBootTime()];
 			break;
 	}
-	[[cell detailTextLabel] setText:key];
-	[[cell textLabel] setText:value];
+	// TODO: Make a custom cell with these properties
+	// [[cell detailTextLabel] setText:key];
+	// [[cell textLabel] setText:value];
+	[cell setText:value];
 }
 
 -(void)dealloc;
@@ -120,25 +153,22 @@ typedef enum {
 	switch (indexPath.section) {
 		case MDInfoTableViewDataSourceSectionBuild:
 		case MDInfoTableViewDataSourceSectionRun:
-			reuseID = @"Unknown";
+			reuseID = @"RunCell";
+			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+			if (!cell) { 
+				cell = [[[MDInfoTableViewCellSegmented alloc] initWithReuseIdentifier:reuseID] autorelease];
+			}
+			// TODO: Figure out why removeAllSegments is not working
+			[[(MDInfoTableViewCellSegmented*)cell segment] removeAllSegments];
+			[self populateRunCell:(MDInfoTableViewCellSegmented*)cell atIndex:indexPath.row];
 			break;
 		case MDInfoTableViewDataSourceSectionHardware:
 			reuseID = @"SystemCell";
-			break;
-	}
-	
-	cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-	if (!cell) { 
-	  cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
-																	 reuseIdentifier:reuseID] autorelease];
-	}
-	
-	switch (indexPath.section) {
-		case MDInfoTableViewDataSourceSectionBuild:
-		case MDInfoTableViewDataSourceSectionRun:
-			[cell setText:@"TODO://"];
-			break;
-		case MDInfoTableViewDataSourceSectionHardware:
+			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+			if (!cell) { 
+				cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero 
+																			 reuseIdentifier:reuseID] autorelease];
+			}
 			[self populateSystemCell:cell atIndex:indexPath.row];
 			break;
 	}
