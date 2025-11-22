@@ -11,14 +11,21 @@
 #import "SystemInfo.h"
 
 typedef enum {
-	MDInfoTableViewDataSourceSectionBuild,
-	MDInfoTableViewDataSourceSectionRun,
+	MDInfoTableViewDataSourceSectionOS,
+	MDInfoTableViewDataSourceSectionEnv,
 	MDInfoTableViewDataSourceSectionHardware,
 } MDInfoTableViewDataSourceSection;
 
 typedef enum {
-	MDInfoTableViewDataSourceRowRunOS,
-} MDInfoTableViewDataSourceRowRun;
+	MDInfoTableViewDataSourceRowOSCurrent,
+	MDInfoTableViewDataSourceRowOSBuild,
+	MDInfoTableViewDataSourceRowOSMin,
+} MDInfoTableViewDataSourceRowOS;
+
+typedef enum {
+	MDInfoTableViewDataSourceRowEnvArch,
+	MDInfoTableViewDataSourceRowEnvSim,
+} MDInfoTableViewDataSourceRowEnv;
 
 typedef enum {
 	MDInfoTableViewDataSourceRowHardwareMachine,
@@ -49,33 +56,57 @@ typedef enum {
 	return self;
 }
 
--(void)populateRunCell:(MDInfoTableViewCellSegmented*)cell atIndex:(NSInteger)index;
+-(void)populateEnvCell:(MDInfoTableViewCellSegmented*)cell atIndex:(NSInteger)index;
 {
 	NSString *key = nil;
-	NSString *rawValue = nil;
 	UISegmentedControl *segment = [cell segment];
 	NSInteger selectedSegment = -1;
 	switch (index) {
-		case MDInfoTableViewDataSourceRowRunOS:
-			key = @"iPhoneOS";
-			// TODO: Change this to use 2,3,4,5,6
-			[segment insertSegmentWithTitle:@"2.2.1" atIndex:0 animated:NO];
-			[segment insertSegmentWithTitle:@"3.0" atIndex:1 animated:NO];
-			[segment insertSegmentWithTitle:@"3.1" atIndex:2 animated:NO];
-			[segment insertSegmentWithTitle:@"3.1.3" atIndex:3 animated:NO];
-			// Change this to use integer and then just base the answer on the first digit
-			rawValue = SISGetCurrentOSVersion();
-			if ([rawValue isEqualToString:@"2.2.1"]) { selectedSegment = 0; }
-			else if ([rawValue isEqualToString:@"3.0"]) { selectedSegment = 1; }
-			else if ([rawValue isEqualToString:@"3.1"]) { selectedSegment = 2; }
-			else if ([rawValue isEqualToString:@"3.1.3"]) { selectedSegment = 3; }
+		case MDInfoTableViewDataSourceRowEnvArch:
+			key = @"Architecture";
+			[segment insertSegmentWithTitle:@"Intel" atIndex:0 animated:NO];
+			[segment insertSegmentWithTitle:@"PPC" atIndex:1 animated:NO];
+			[segment insertSegmentWithTitle:@"ARM" atIndex:2 animated:NO];
+			if (SISIsArchARMFamily())   { selectedSegment = 2; }
+			if (SISIsArchIntelFamily()) { selectedSegment = 0; }
+			if (SISIsArchPPCFamily())   { selectedSegment = 1; }
+			break;
+		case MDInfoTableViewDataSourceRowEnvSim:
+			key = @"Device";
+			[segment insertSegmentWithTitle:@"Device" atIndex:0 animated:NO];
+			[segment insertSegmentWithTitle:@"Simulator" atIndex:1 animated:NO];
+			selectedSegment = SISIsTargetSimulator() ? 1 : 0;
 			break;
 	}
 	[segment setSelectedSegmentIndex:selectedSegment];
 	[[cell label] setText:key];	
 }
 
--(void)populateSystemCell:(UITableViewCell*)cell atIndex:(NSInteger)index;
+-(void)populateOSCell:(UITableViewCell*)cell atIndex:(NSInteger)index;
+{
+	NSString *key = nil;
+	NSString *value = nil;
+	switch (index) {
+		case MDInfoTableViewDataSourceRowOSCurrent:
+			key = @"Running OS";
+			value = SISGetCurrentOSVersion();
+			break;
+		case MDInfoTableViewDataSourceRowOSBuild:
+			key = @"Build SDK";
+			value = SISGetCompileTimeMaxOSVersion();
+			break;
+		case MDInfoTableViewDataSourceRowOSMin:
+			key = @"Minimum OS";
+			value = SISGetCompileTimeMinOSVersion();
+			break;
+	}
+	// TODO: Make a custom cell with these properties
+	// [[cell detailTextLabel] setText:key];
+	// [[cell textLabel] setText:value];
+	[cell setText:value];
+}
+
+-(void)populateHardwareCell:(UITableViewCell*)cell atIndex:(NSInteger)index;
 {
 	NSString *key = nil;
 	NSString *value = nil;
@@ -139,8 +170,8 @@ typedef enum {
 -(NSInteger)tableView:(UITableView*)table numberOfRowsInSection:(NSInteger)section;
 {
 	switch (section) {
-		case MDInfoTableViewDataSourceSectionBuild:    return 1;
-		case MDInfoTableViewDataSourceSectionRun:      return 1;
+		case MDInfoTableViewDataSourceSectionOS:       return 3;
+		case MDInfoTableViewDataSourceSectionEnv:      return 2;
 		case MDInfoTableViewDataSourceSectionHardware: return 9;
 		default: return 0;
 	}
@@ -151,16 +182,22 @@ typedef enum {
 	UITableViewCell *cell = nil;
 	NSString *reuseID = nil;
 	switch (indexPath.section) {
-		case MDInfoTableViewDataSourceSectionBuild:
-		case MDInfoTableViewDataSourceSectionRun:
-			reuseID = @"RunCell";
+		case MDInfoTableViewDataSourceSectionOS:
+			reuseID = @"OSCell";
+			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+			if (!cell) { 
+				cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero 
+																			 reuseIdentifier:reuseID] autorelease];
+			}
+			[self populateOSCell:cell atIndex:indexPath.row];
+			break;
+		case MDInfoTableViewDataSourceSectionEnv:
+			reuseID = @"EnvCell";
 			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
 			if (!cell) { 
 				cell = [[[MDInfoTableViewCellSegmented alloc] initWithReuseIdentifier:reuseID] autorelease];
 			}
-			// TODO: Figure out why removeAllSegments is not working
-			[[(MDInfoTableViewCellSegmented*)cell segment] removeAllSegments];
-			[self populateRunCell:(MDInfoTableViewCellSegmented*)cell atIndex:indexPath.row];
+			[self populateEnvCell:(MDInfoTableViewCellSegmented*)cell atIndex:indexPath.row];
 			break;
 		case MDInfoTableViewDataSourceSectionHardware:
 			reuseID = @"SystemCell";
@@ -169,7 +206,7 @@ typedef enum {
 				cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero 
 																			 reuseIdentifier:reuseID] autorelease];
 			}
-			[self populateSystemCell:cell atIndex:indexPath.row];
+			[self populateHardwareCell:cell atIndex:indexPath.row];
 			break;
 	}
 	
@@ -184,9 +221,9 @@ typedef enum {
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section;
 {
 	switch (section) {
-		case MDInfoTableViewDataSourceSectionBuild:    return @"Build";
-		case MDInfoTableViewDataSourceSectionRun:      return @"Run";
-		case MDInfoTableViewDataSourceSectionHardware: return @"System";
+		case MDInfoTableViewDataSourceSectionOS:       return @"iPhone OS";
+		case MDInfoTableViewDataSourceSectionEnv:      return @"Environment";
+		case MDInfoTableViewDataSourceSectionHardware: return @"Hardware";
 		default: return nil;
 	}
 }

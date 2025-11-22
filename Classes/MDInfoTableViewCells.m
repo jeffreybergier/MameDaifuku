@@ -48,6 +48,20 @@
 															 bounds.size.height-(padding*2))];
 }
 
+-(void)prepareForReuse;
+{
+	NSInteger osMajor = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] integerValue];
+	if (osMajor >= 3) {
+		[_segment removeAllSegments];
+	} else {
+		// HACK: For 2.2.1 which does not remove all segments
+		[_segment removeFromSuperview];
+		[self setSegment:[[[UISegmentedControl alloc] initWithFrame:CGRectZero] autorelease]];
+		[[self contentView] addSubview:_segment];
+	}
+	[super prepareForReuse];
+}
+
 -(void)dealloc;
 {
 	[_segment release];
