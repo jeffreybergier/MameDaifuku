@@ -13,6 +13,12 @@
 @synthesize keyLabel = _keyLabel;
 @synthesize valueLabel = _valueLabel;
 
+-(id)init; 
+{ 
+  NSAssert(NO, @"Designated Initializer: initWithReuseIdentifier:");
+	return nil;
+}
+
 -(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 {
 	self = [super initWithFrame:CGRectZero reuseIdentifier:reuseIdentifier];
@@ -64,6 +70,12 @@
 
 @synthesize segment = _segment;
 @synthesize label = _label;
+
+-(id)init; 
+{ 
+  NSAssert(NO, @"Designated Initializer: initWithReuseIdentifier:");
+	return nil;
+}
 
 -(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 {

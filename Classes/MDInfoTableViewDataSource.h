@@ -17,6 +17,8 @@
 @property (readonly) NSDateFormatter *dateFormatter;
 @property (readonly) NSNumberFormatter *numberFormatter;
 
+-(id)initWithTableViewController:(UITableViewController*)tableVC;
+
 @end
 
 @interface MDInfoTableViewDataSource (UITableViewDataSource) <UITableViewDataSource>

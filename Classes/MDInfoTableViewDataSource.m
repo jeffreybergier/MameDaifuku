@@ -56,6 +56,16 @@ typedef enum {
 	return self;
 }
 
+-(id)initWithTableViewController:(UITableViewController*)tableVC;
+{
+	self = [self init];
+	NSParameterAssert(self);
+	[[tableVC tableView] setDataSource:self];
+	// TODO: Configure tabBarItem
+	[tableVC setTitle:@"情報"];
+	return self;
+}
+
 -(void)populateEnvCell:(MDInfoTableViewCellSegmented*)cell atIndex:(NSInteger)index;
 {
 	NSString *key = nil;

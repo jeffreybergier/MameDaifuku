@@ -16,9 +16,9 @@
 	id _introTableViewDataSource;
 }
 
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) UIViewController *rootViewController;
-@property (nonatomic, retain) id infoTableViewDataSource;
-@property (nonatomic, retain) id introTableViewDataSource;
+@property (readonly) UIWindow *window;
+@property (readonly) UIViewController *rootViewController;
+@property (readonly) id infoTableViewDataSource;
+@property (readonly) id introTableViewDataSource;
 
 @end

@@ -30,6 +30,12 @@ static       UIFont *kBioFont  = nil;
 	return [image size].height+(kVPadding*2);
 }
 
+-(id)init; 
+{ 
+  NSAssert(NO, @"Designated Initializer: initWithReuseIdentifier:");
+	return nil;
+}
+
 -(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 {
 	self = [super initWithFrame:CGRectZero reuseIdentifier:reuseIdentifier];
@@ -90,6 +96,12 @@ static       UIFont *kBioFont  = nil;
 	return output.height;
 }
 
+-(id)init; 
+{ 
+  NSAssert(NO, @"Designated Initializer: initWithReuseIdentifier:");
+	return nil;
+}
+
 -(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 {
 	self = [super initWithFrame:CGRectZero reuseIdentifier:reuseIdentifier];
@@ -124,18 +136,29 @@ static       UIFont *kBioFont  = nil;
 @synthesize pic = _pic;
 @synthesize bio = _bio;
 
--(id)initWithTableViewController:(UITableViewController*)tableVC;
-{
+-(id)init; 
+{ 
 	self = [super init];
 	NSParameterAssert(self);
 	_pic = [[UIImage imageNamed:@"mamedaifuku.png"] retain];
 	_bio = @"Hello, I'm MameDaifuku, an iPhone App. I've been "
-				 @"developed and deployed on a very special iMac G4 "
-				 @"called IchigoDaifuku. Even though Apple never "
-				 @"allowed iPhone development on PowerPC Macs, I think "
-				 @"I am proof that it is indeed possible.";
+	       @"developed and deployed on a very special iMac G4 "
+	       @"called IchigoDaifuku. Even though Apple never "
+	       @"allowed iPhone development on PowerPC Macs, I think "
+	       @"I am proof that it is indeed possible.";
 	NSParameterAssert(_pic);
 	NSParameterAssert(_bio);
+	return self;
+}
+
+-(id)initWithTableViewController:(UITableViewController*)tableVC;
+{
+  self = [self init];
+	NSParameterAssert(self);
+	[[tableVC tableView] setDataSource:self];
+	[[tableVC tableView] setDelegate:self];
+	// TODO: Configure tabBarItem
+	[tableVC setTitle:@"自己紹介"];
 	return self;
 }
 
