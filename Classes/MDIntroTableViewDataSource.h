@@ -13,3 +13,6 @@
 
 @interface MDIntroTableViewDataSource (UITableViewDataSource) <UITableViewDataSource>
 @end
+
+@interface MDIntroTableViewDataSource (UITableViewDelegate) <UITableViewDelegate>
+@end

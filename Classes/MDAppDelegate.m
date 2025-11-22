@@ -43,6 +43,7 @@
 	// TODO: Create crossplatform file to add this method on iOS2
 	// [infoTableView setAllowsSelection:NO];
 	[[introVC tableView] setDataSource:introDS];
+	[[introVC tableView] setDelegate:introDS];
 	[[infoVC tableView] setDataSource:infoDS];	
 	[tabBarController setViewControllers:[NSArray arrayWithObjects:introVC, infoVC, nil]];
 	

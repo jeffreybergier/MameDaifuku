@@ -8,6 +8,41 @@
 
 #import "MDIntroTableViewDataSource.h"
 
+@interface MDIntroTableViewCellImage: UITableViewCell {
+	UIImageView *_MD_imageView;
+}
+@property (readonly) UIImageView *MD_imageView;
+-(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
+@end
+
+@implementation MDIntroTableViewCellImage
+
+@synthesize MD_imageView = _MD_imageView;
+
+-(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
+{
+	self = [super initWithFrame:CGRectZero reuseIdentifier:reuseIdentifier];
+	NSParameterAssert(self);
+	_MD_imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+	[_MD_imageView setContentMode:UIViewContentModeCenter];
+	[[self contentView] addSubview:_MD_imageView];
+	return self;
+}
+
+-(void)layoutSubviews;
+{
+	[super layoutSubviews];
+	[[self MD_imageView] setFrame:[[self contentView] bounds]];
+}
+
+-(void)dealloc;
+{
+	[_MD_imageView release];
+	[super dealloc];
+}
+
+@end
+
 @implementation MDIntroTableViewDataSource
 @end
 
@@ -17,13 +52,15 @@
 {
 	UITableViewCell *cell = nil;
 	NSString *reuseID = @"Reuse";
-	cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-	if (!cell) { cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:reuseID] autorelease]; }
 	switch (indexPath.section) {
 		case 0:
-			[cell setText:[NSString stringWithFormat:@"[UIImage imageNamed:\@\"mamedaifuku.png\"]", indexPath.section, indexPath.row]];
+			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+			if (!cell) { cell = [[[MDIntroTableViewCellImage alloc] initWithReuseIdentifier:reuseID] autorelease]; }
+			[[(MDIntroTableViewCellImage*)cell MD_imageView] setImage:[UIImage imageNamed:@"mamedaifuku.png"]];
 			break;
 		case 1:
+			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+			if (!cell) { cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:reuseID] autorelease]; }
 			[cell setText:[NSString stringWithFormat:
 										 @"Hello, I'm MameDaifuku, an iPhone App. I've been "
 										 @"developed and deployed on a very special iMac G4 "
@@ -55,4 +92,15 @@
 	}
 }
 
+@end
+
+@implementation MDIntroTableViewDataSource (UITableViewDelegate)
+-(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath;
+{
+  switch (indexPath.section) {
+		case 0:  return 230;
+		case 1:  return 44;
+		default: return -1;
+	}
+}
 @end
