@@ -13,8 +13,8 @@
 	UILabel *_valueLabel;
 }
 
-@property (nonatomic, retain) UILabel *keyLabel;
-@property (nonatomic, retain) UILabel *valueLabel;
+@property (readonly) UILabel *keyLabel;
+@property (readonly) UILabel *valueLabel;
 
 -(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 
@@ -26,8 +26,8 @@
 	NSInteger _osMajor;
 }
 
-@property (nonatomic, retain) UISegmentedControl *segment;
-@property (nonatomic, retain) UILabel *label;
+@property (readonly) UISegmentedControl *segment;
+@property (readonly) UILabel *label;
 
 -(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 

@@ -14,8 +14,8 @@
 	NSNumberFormatter *_numberFormatter;
 }
 
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
-@property (nonatomic, retain) NSNumberFormatter *numberFormatter;
+@property (readonly) NSDateFormatter *dateFormatter;
+@property (readonly) NSNumberFormatter *numberFormatter;
 
 @end
 

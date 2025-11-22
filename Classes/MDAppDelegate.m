@@ -24,7 +24,7 @@
 	UINavigationController *navVC = [[[UINavigationController alloc] initWithRootViewController:tabBarController] autorelease];
 	UITableViewController *introVC = [[[UITableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 	UITableViewController *infoVC = [[[UITableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
-	MDIntroTableViewDataSource *introDS = [[[MDIntroTableViewDataSource alloc] init] autorelease];
+	MDIntroTableViewDataSource *introDS = [[[MDIntroTableViewDataSource alloc] initWithTableViewController:introVC] autorelease];
 	MDInfoTableViewDataSource *infoDS = [[[MDInfoTableViewDataSource alloc] init] autorelease];
 	UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	UIView *rootView = [navVC view];

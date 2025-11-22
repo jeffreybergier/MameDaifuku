@@ -59,12 +59,12 @@
 			children = (
 				1D3623240D0F684500981E51 /* MDAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MDAppDelegate.m */,
-				8C1F4C762ED1B26B000FDC69 /* MDIntroTableViewDataSource.h */,
-				8C1F4C772ED1B26B000FDC69 /* MDIntroTableViewDataSource.m */,
 				8CC5168E2ECF409B009FF279 /* MDInfoTableViewDataSource.h */,
 				8CC5168F2ECF409B009FF279 /* MDInfoTableViewDataSource.m */,
 				8C961C622ED0930E002E34D4 /* MDInfoTableViewCells.h */,
 				8C961C632ED0930E002E34D4 /* MDInfoTableViewCells.m */,
+				8C1F4C762ED1B26B000FDC69 /* MDIntroTableViewDataSource.h */,
+				8C1F4C772ED1B26B000FDC69 /* MDIntroTableViewDataSource.m */,
 				8CC5165A2ECF3BF8009FF279 /* SystemInfo.h */,
 				8CC516592ECF3BF8009FF279 /* SystemInfo.m */,
 			);

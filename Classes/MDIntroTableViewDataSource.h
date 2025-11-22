@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 
 @interface MDIntroTableViewDataSource: NSObject
+{
+	UIImage  *_pic;
+	NSString *_bio;
+}
+
+@property (readonly) UIImage  *pic;
+@property (readonly) NSString *bio;
+
+-(id)initWithTableViewController:(UITableViewController*)tableVC;
+
 @end
 
 @interface MDIntroTableViewDataSource (UITableViewDataSource) <UITableViewDataSource>

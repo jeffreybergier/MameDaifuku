@@ -108,7 +108,8 @@
 	} else {
 		// HACK: For 2.2.1 which does not remove all segments
 		[_segment removeFromSuperview];
-		[self setSegment:[[[UISegmentedControl alloc] initWithFrame:CGRectZero] autorelease]];
+		[_segment release];
+		_segment = [[UISegmentedControl alloc] initWithFrame:CGRectZero];
 		[[self contentView] addSubview:_segment];
 	}
 	[super prepareForReuse];
