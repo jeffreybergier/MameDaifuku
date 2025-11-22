@@ -64,12 +64,12 @@ typedef enum {
 	switch (index) {
 		case MDInfoTableViewDataSourceRowEnvArch:
 			key = @"Architecture";
-			[segment insertSegmentWithTitle:@"Intel" atIndex:0 animated:NO];
-			[segment insertSegmentWithTitle:@"PPC" atIndex:1 animated:NO];
-			[segment insertSegmentWithTitle:@"ARM" atIndex:2 animated:NO];
-			if (SISIsArchARMFamily())   { selectedSegment = 2; }
-			if (SISIsArchIntelFamily()) { selectedSegment = 0; }
-			if (SISIsArchPPCFamily())   { selectedSegment = 1; }
+			[segment insertSegmentWithTitle:@"ARM" atIndex:0 animated:NO];
+			[segment insertSegmentWithTitle:@"Intel" atIndex:1 animated:NO];
+			[segment insertSegmentWithTitle:@"PPC" atIndex:2 animated:NO];
+			if (SISIsArchARMFamily())   { selectedSegment = 0; }
+			if (SISIsArchIntelFamily()) { selectedSegment = 1; }
+			if (SISIsArchPPCFamily())   { selectedSegment = 2; }
 			break;
 		case MDInfoTableViewDataSourceRowEnvSim:
 			key = @"Device";
@@ -82,7 +82,7 @@ typedef enum {
 	[[cell label] setText:key];	
 }
 
--(void)populateOSCell:(UITableViewCell*)cell atIndex:(NSInteger)index;
+-(void)populateOSCell:(MDInfoTableViewCellKeyValue*)cell atIndex:(NSInteger)index;
 {
 	NSString *key = nil;
 	NSString *value = nil;
@@ -100,13 +100,11 @@ typedef enum {
 			value = SISGetCompileTimeMinOSVersion();
 			break;
 	}
-	// TODO: Make a custom cell with these properties
-	// [[cell detailTextLabel] setText:key];
-	// [[cell textLabel] setText:value];
-	[cell setText:value];
+	[[cell keyLabel] setText:key];
+	[[cell valueLabel] setText:value];
 }
 
--(void)populateHardwareCell:(UITableViewCell*)cell atIndex:(NSInteger)index;
+-(void)populateHardwareCell:(MDInfoTableViewCellKeyValue*)cell atIndex:(NSInteger)index;
 {
 	NSString *key = nil;
 	NSString *value = nil;
@@ -150,10 +148,8 @@ typedef enum {
 			value = [df stringFromDate:SISGetKernBootTime()];
 			break;
 	}
-	// TODO: Make a custom cell with these properties
-	// [[cell detailTextLabel] setText:key];
-	// [[cell textLabel] setText:value];
-	[cell setText:value];
+	[[cell keyLabel] setText:key];
+	[[cell valueLabel] setText:value];
 }
 
 -(void)dealloc;
@@ -185,28 +181,20 @@ typedef enum {
 		case MDInfoTableViewDataSourceSectionOS:
 			reuseID = @"OSCell";
 			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-			if (!cell) { 
-				cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero 
-																			 reuseIdentifier:reuseID] autorelease];
-			}
-			[self populateOSCell:cell atIndex:indexPath.row];
+			if (!cell) { cell = [[[MDInfoTableViewCellKeyValue alloc] initWithReuseIdentifier:reuseID] autorelease]; }
+			[self populateOSCell:(MDInfoTableViewCellKeyValue*)cell atIndex:indexPath.row];
 			break;
 		case MDInfoTableViewDataSourceSectionEnv:
 			reuseID = @"EnvCell";
 			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-			if (!cell) { 
-				cell = [[[MDInfoTableViewCellSegmented alloc] initWithReuseIdentifier:reuseID] autorelease];
-			}
+			if (!cell) { cell = [[[MDInfoTableViewCellSegmented alloc] initWithReuseIdentifier:reuseID] autorelease]; }
 			[self populateEnvCell:(MDInfoTableViewCellSegmented*)cell atIndex:indexPath.row];
 			break;
 		case MDInfoTableViewDataSourceSectionHardware:
 			reuseID = @"SystemCell";
 			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-			if (!cell) { 
-				cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero 
-																			 reuseIdentifier:reuseID] autorelease];
-			}
-			[self populateHardwareCell:cell atIndex:indexPath.row];
+			if (!cell) { cell = [[[MDInfoTableViewCellKeyValue alloc] initWithReuseIdentifier:reuseID] autorelease]; }
+			[self populateHardwareCell:(MDInfoTableViewCellKeyValue*)cell atIndex:indexPath.row];
 			break;
 	}
 	

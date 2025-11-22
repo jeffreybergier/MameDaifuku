@@ -22,6 +22,7 @@
 	MDIntroViewController *introVC = [[[MDIntroViewController alloc] initWithNibName:nil bundle:nil] autorelease];
 	UITableViewController *infoVC = [[[UITableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 	MDInfoTableViewDataSource *dataSource = [[[MDInfoTableViewDataSource alloc] init] autorelease];
+	UITableView *infoTableView = [infoVC tableView];
 	UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	UIView *rootView = [tabBarController view];
 	
@@ -29,7 +30,9 @@
 	[self setTabBarController:tabBarController];
 	[self setInfoTableViewDataSource:dataSource];
 	
-	[[infoVC tableView] setDataSource:dataSource];
+	// TODO: Create crossplatform file to add this method on iOS2
+	// [infoTableView setAllowsSelection:NO];
+	[infoTableView setDataSource:dataSource];
 	[tabBarController setViewControllers:[NSArray arrayWithObjects:introVC, infoVC, nil]];
 	[window addSubview:rootView];
 	[window makeKeyAndVisible];
