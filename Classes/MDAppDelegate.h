@@ -11,12 +11,14 @@
 @interface MDAppDelegate: NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 {
 	UIWindow *_window;
-	UITabBarController *_tabBarController;
+	UIViewController *_rootViewController;
 	id _infoTableViewDataSource;
+	id _introTableViewDataSource;
 }
 
 @property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) UITabBarController *tabBarController;
+@property (nonatomic, retain) UIViewController *rootViewController;
 @property (nonatomic, retain) id infoTableViewDataSource;
+@property (nonatomic, retain) id introTableViewDataSource;
 
 @end

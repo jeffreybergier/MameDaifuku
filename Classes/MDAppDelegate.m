@@ -7,33 +7,46 @@
 //
 
 #import "MDAppDelegate.h"
-#import "MDIntroViewController.h"
+#import "MDIntroTableViewDataSource.h"
 #import "MDInfoTableViewDataSource.h"
 
 @implementation MDAppDelegate
 
 @synthesize window = _window;
-@synthesize tabBarController = _tabBarController;
+@synthesize rootViewController = _rootViewController;
 @synthesize infoTableViewDataSource = _infoTableViewDataSource;
+@synthesize introTableViewDataSource = _introTableViewDataSource;
 
 -(void)applicationDidFinishLaunching:(UIApplication*)application;
 {
+	// Create View Controllers
 	UITabBarController *tabBarController = [[[UITabBarController alloc] initWithNibName:nil bundle:nil] autorelease];
-	MDIntroViewController *introVC = [[[MDIntroViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+	UINavigationController *navVC = [[[UINavigationController alloc] initWithRootViewController:tabBarController] autorelease];
+	UITableViewController *introVC = [[[UITableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 	UITableViewController *infoVC = [[[UITableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
-	MDInfoTableViewDataSource *dataSource = [[[MDInfoTableViewDataSource alloc] init] autorelease];
-	UITableView *infoTableView = [infoVC tableView];
+	MDIntroTableViewDataSource *introDS = [[[MDIntroTableViewDataSource alloc] init] autorelease];
+	MDInfoTableViewDataSource *infoDS = [[[MDInfoTableViewDataSource alloc] init] autorelease];
 	UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	UIView *rootView = [tabBarController view];
+	UIView *rootView = [navVC view];
 	
+	// Set Properties
 	[self setWindow:window];
-	[self setTabBarController:tabBarController];
-	[self setInfoTableViewDataSource:dataSource];
+	[self setRootViewController:navVC];
+	[self setIntroTableViewDataSource:introDS];
+	[self setInfoTableViewDataSource:infoDS];
 	
+	// Configure View Controllers
+	// TODO: Move this into view controller files
+	[tabBarController setTitle:@"豆大福"];
+	[introVC setTitle:@"自己紹介"];
+	[infoVC setTitle:@"情報"];
 	// TODO: Create crossplatform file to add this method on iOS2
 	// [infoTableView setAllowsSelection:NO];
-	[infoTableView setDataSource:dataSource];
+	[[introVC tableView] setDataSource:introDS];
+	[[infoVC tableView] setDataSource:infoDS];	
 	[tabBarController setViewControllers:[NSArray arrayWithObjects:introVC, infoVC, nil]];
+	
+	// Configure Main Window
 	[window addSubview:rootView];
 	[window makeKeyAndVisible];
 }
@@ -41,7 +54,7 @@
 
 -(void)dealloc;
 {
-	[_tabBarController release];
+	[_rootViewController release];
 	[_infoTableViewDataSource release];
 	[_window release];
 	[super dealloc];
