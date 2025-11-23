@@ -14,6 +14,8 @@
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		8C1F4C782ED1B26B000FDC69 /* MDIntroTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4C772ED1B26B000FDC69 /* MDIntroTableViewDataSource.m */; };
 		8C7166AF2ED2EC8D00642486 /* XPCrossPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7166AE2ED2EC8D00642486 /* XPCrossPlatform.m */; };
+		8C9002A72ED3655E008805E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9002A62ED3655E008805E6 /* Default.png */; };
+		8C9002B82ED36810008805E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CF4CA502ED30DF9008F628B /* InfoPlist.strings */; };
 		8C961C642ED0930E002E34D4 /* MDInfoTableViewCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C961C632ED0930E002E34D4 /* MDInfoTableViewCells.m */; };
 		8CB6D5892ED2E639001F5B23 /* profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5802ED2E639001F5B23 /* profile@3x.png */; };
 		8CB6D58A2ED2E639001F5B23 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5812ED2E639001F5B23 /* profile.png */; };
@@ -40,6 +42,7 @@
 		8C1F4C772ED1B26B000FDC69 /* MDIntroTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDIntroTableViewDataSource.m; sourceTree = "<group>"; };
 		8C7166AD2ED2EC8D00642486 /* XPCrossPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPCrossPlatform.h; sourceTree = "<group>"; };
 		8C7166AE2ED2EC8D00642486 /* XPCrossPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPCrossPlatform.m; sourceTree = "<group>"; };
+		8C9002A62ED3655E008805E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8C961C622ED0930E002E34D4 /* MDInfoTableViewCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInfoTableViewCells.h; sourceTree = "<group>"; };
 		8C961C632ED0930E002E34D4 /* MDInfoTableViewCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDInfoTableViewCells.m; sourceTree = "<group>"; };
 		8CB6D5802ED2E639001F5B23 /* profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@3x.png"; path = "Resources/profile@3x.png"; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 				8CB6D5882ED2E639001F5B23 /* address.png */,
 				8CB6D5872ED2E639001F5B23 /* address@2x.png */,
 				8CB6D5862ED2E639001F5B23 /* profile@3x.png */,
+				8C9002A62ED3655E008805E6 /* Default.png */,
 				8CF4CA462ED30DE0008F628B /* Localizable.strings */,
 				8CF4CA502ED30DF9008F628B /* InfoPlist.strings */,
 			);
@@ -214,6 +218,8 @@
 				8CB6D5902ED2E639001F5B23 /* address@2x.png in Resources */,
 				8CB6D5912ED2E639001F5B23 /* address.png in Resources */,
 				8CF4CA482ED30DE0008F628B /* Localizable.strings in Resources */,
+				8C9002A72ED3655E008805E6 /* Default.png in Resources */,
+				8C9002B82ED36810008805E6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
