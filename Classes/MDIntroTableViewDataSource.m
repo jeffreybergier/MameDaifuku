@@ -7,6 +7,7 @@
 //
 
 #import "MDIntroTableViewDataSource.h"
+#import "XPCrossPlatform.h"
 
 static const CGFloat kVPadding = 4;
 static const CGFloat kHPadding = 8;
@@ -157,6 +158,7 @@ static       UIFont *kBioFont  = nil;
 	NSParameterAssert(self);
 	[[tableVC tableView] setDataSource:self];
 	[[tableVC tableView] setDelegate:self];
+	[[tableVC tableView] XP_setAllowsSelection:NO];
 	[tableVC setTitle:@"自己紹介"];
 	[tableVC setTabBarItem:
 	 [[[UITabBarItem alloc] initWithTitle:@"自己紹介" 

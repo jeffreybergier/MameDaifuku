@@ -9,6 +9,7 @@
 #import "MDInfoTableViewDataSource.h"
 #import "MDInfoTableViewCells.h"
 #import "SystemInfo.h"
+#import "XPCrossPlatform.h"
 
 typedef enum {
 	MDInfoTableViewDataSourceSectionOS,
@@ -61,6 +62,7 @@ typedef enum {
 	self = [self init];
 	NSParameterAssert(self);
 	[[tableVC tableView] setDataSource:self];
+	[[tableVC tableView] XP_setAllowsSelection:NO];
 	[tableVC setTitle:@"デバイス"];
 	[tableVC setTabBarItem:
 	 [[[UITabBarItem alloc] initWithTitle:@"デバイス" 
