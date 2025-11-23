@@ -122,6 +122,7 @@
 		[_segment removeFromSuperview];
 		[_segment release];
 		_segment = [[UISegmentedControl alloc] initWithFrame:CGRectZero];
+		[_segment setUserInteractionEnabled:NO];
 		[[self contentView] addSubview:_segment];
 	}
 	[super prepareForReuse];

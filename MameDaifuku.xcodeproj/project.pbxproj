@@ -21,7 +21,6 @@
 		8CB6D58C2ED2E639001F5B23 /* microchip@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5832ED2E639001F5B23 /* microchip@3x.png */; };
 		8CB6D58D2ED2E639001F5B23 /* microchip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5842ED2E639001F5B23 /* microchip@2x.png */; };
 		8CB6D58E2ED2E639001F5B23 /* microchip.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5852ED2E639001F5B23 /* microchip.png */; };
-		8CB6D58F2ED2E639001F5B23 /* profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5862ED2E639001F5B23 /* profile@3x.png */; };
 		8CB6D5902ED2E639001F5B23 /* address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5872ED2E639001F5B23 /* address@2x.png */; };
 		8CB6D5912ED2E639001F5B23 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5882ED2E639001F5B23 /* address.png */; };
 		8CC5165B2ECF3BF8009FF279 /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC516592ECF3BF8009FF279 /* SystemInfo.m */; };
@@ -212,7 +211,6 @@
 				8CB6D58C2ED2E639001F5B23 /* microchip@3x.png in Resources */,
 				8CB6D58D2ED2E639001F5B23 /* microchip@2x.png in Resources */,
 				8CB6D58E2ED2E639001F5B23 /* microchip.png in Resources */,
-				8CB6D58F2ED2E639001F5B23 /* profile@3x.png in Resources */,
 				8CB6D5902ED2E639001F5B23 /* address@2x.png in Resources */,
 				8CB6D5912ED2E639001F5B23 /* address.png in Resources */,
 				8CF4CA482ED30DE0008F628B /* Localizable.strings in Resources */,
