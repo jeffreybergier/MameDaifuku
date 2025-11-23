@@ -61,8 +61,11 @@ typedef enum {
 	self = [self init];
 	NSParameterAssert(self);
 	[[tableVC tableView] setDataSource:self];
-	// TODO: Configure tabBarItem
-	[tableVC setTitle:@"情報"];
+	[tableVC setTitle:@"デバイス"];
+	[tableVC setTabBarItem:
+	 [[[UITabBarItem alloc] initWithTitle:@"デバイス" 
+																	image:[UIImage imageNamed:@"microchip.png"] 
+																		tag:0] autorelease]];
 	return self;
 }
 

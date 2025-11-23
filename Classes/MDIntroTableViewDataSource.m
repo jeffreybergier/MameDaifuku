@@ -140,7 +140,7 @@ static       UIFont *kBioFont  = nil;
 { 
 	self = [super init];
 	NSParameterAssert(self);
-	_pic = [[UIImage imageNamed:@"mamedaifuku.png"] retain];
+	_pic = [[UIImage imageNamed:@"profile.png"] retain];
 	_bio = @"Hello, I'm MameDaifuku, an iPhone App. I've been "
 	       @"developed and deployed on a very special iMac G4 "
 	       @"called IchigoDaifuku. Even though Apple never "
@@ -157,8 +157,11 @@ static       UIFont *kBioFont  = nil;
 	NSParameterAssert(self);
 	[[tableVC tableView] setDataSource:self];
 	[[tableVC tableView] setDelegate:self];
-	// TODO: Configure tabBarItem
 	[tableVC setTitle:@"自己紹介"];
+	[tableVC setTabBarItem:
+	 [[[UITabBarItem alloc] initWithTitle:@"自己紹介" 
+																	image:[UIImage imageNamed:@"address.png"] 
+																		tag:0] autorelease]];
 	return self;
 }
 
