@@ -63,9 +63,9 @@ typedef enum {
 	NSParameterAssert(self);
 	[[tableVC tableView] setDataSource:self];
 	[[tableVC tableView] XP_setAllowsSelection:NO];
-	[tableVC setTitle:@"デバイス"];
+	[tableVC setTitle:NSLocalizedString(@"TitleInfo", nil)];
 	[tableVC setTabBarItem:
-	 [[[UITabBarItem alloc] initWithTitle:@"デバイス" 
+	 [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"TitleInfo", nil) 
 																	image:[UIImage imageNamed:@"microchip.png"] 
 																		tag:0] autorelease]];
 	return self;
@@ -78,18 +78,18 @@ typedef enum {
 	NSInteger selectedSegment = -1;
 	switch (index) {
 		case MDInfoTableViewDataSourceRowEnvArch:
-			key = @"Architecture";
-			[segment insertSegmentWithTitle:@"ARM" atIndex:0 animated:NO];
-			[segment insertSegmentWithTitle:@"Intel" atIndex:1 animated:NO];
-			[segment insertSegmentWithTitle:@"PPC" atIndex:2 animated:NO];
+			key = NSLocalizedString(@"SubEnvArch", nil);
+			[segment insertSegmentWithTitle:NSLocalizedString(@"ValueARM", nil) atIndex:0 animated:NO];
+			[segment insertSegmentWithTitle:NSLocalizedString(@"ValueX86", nil) atIndex:1 animated:NO];
+			[segment insertSegmentWithTitle:NSLocalizedString(@"ValuePPC", nil) atIndex:2 animated:NO];
 			if (SISIsArchARMFamily())   { selectedSegment = 0; }
 			if (SISIsArchIntelFamily()) { selectedSegment = 1; }
 			if (SISIsArchPPCFamily())   { selectedSegment = 2; }
 			break;
 		case MDInfoTableViewDataSourceRowEnvSim:
-			key = @"Device";
-			[segment insertSegmentWithTitle:@"Device" atIndex:0 animated:NO];
-			[segment insertSegmentWithTitle:@"Simulator" atIndex:1 animated:NO];
+			key = NSLocalizedString(@"SubEnvDevice", nil);
+			[segment insertSegmentWithTitle:NSLocalizedString(@"ValueDev", nil) atIndex:0 animated:NO];
+			[segment insertSegmentWithTitle:NSLocalizedString(@"ValueSim", nil) atIndex:1 animated:NO];
 			selectedSegment = SISIsTargetSimulator() ? 1 : 0;
 			break;
 	}
@@ -103,15 +103,15 @@ typedef enum {
 	NSString *value = nil;
 	switch (index) {
 		case MDInfoTableViewDataSourceRowOSCurrent:
-			key = @"Running OS";
+			key = NSLocalizedString(@"SubOSRun", nil);
 			value = SISGetCurrentOSVersion();
 			break;
 		case MDInfoTableViewDataSourceRowOSBuild:
-			key = @"Build SDK";
+			key = NSLocalizedString(@"SubOSBuild", nil);
 			value = SISGetCompileTimeMaxOSVersion();
 			break;
 		case MDInfoTableViewDataSourceRowOSMin:
-			key = @"Minimum OS";
+			key = NSLocalizedString(@"SubOSMin", nil);
 			value = SISGetCompileTimeMinOSVersion();
 			break;
 	}
@@ -127,39 +127,39 @@ typedef enum {
 	NSDateFormatter *df = [self dateFormatter];
 	switch (index) {
 		case MDInfoTableViewDataSourceRowHardwareMachine:
-			key = @"Machine";
+			key = NSLocalizedString(@"SubHardMachine", nil);
 			value = SISGetHWMachine();
 			break;
 		case MDInfoTableViewDataSourceRowHardwareModel:
-			key = @"Model";
+			key = NSLocalizedString(@"SubHardModel", nil);
 			value = SISGetHWModel();
 			break;
 		case MDInfoTableViewDataSourceRowHardwareNCPU:
-			key = @"CPU Cores";
+			key = NSLocalizedString(@"SubHardNCPU", nil);
 			value = [nf stringFromNumber:[NSNumber numberWithInteger:SISGetHWNCPU()]];
 			break;
 		case MDInfoTableViewDataSourceRowHardwareMemSize:
-			key = @"Memory";
+			key = NSLocalizedString(@"SubHardRAM", nil);
 			value = [nf stringFromNumber:[NSNumber numberWithInteger:SISGetHWMemSize()]];
 			break;
 		case MDInfoTableViewDataSourceRowHardwarePageSize:
-			key = @"Page Size";
+			key = NSLocalizedString(@"SubHardPage", nil);
 			value = [nf stringFromNumber:[NSNumber numberWithInteger:SISGetHWPageSize()]];
 			break;
 		case MDInfoTableViewDataSourceRowHardwareOSRelease:
-			key = @"Release";
+			key = NSLocalizedString(@"SubHardRelease", nil);
 			value = SISGetKernOSRelease();
 			break;
 		case MDInfoTableViewDataSourceRowHardwareOSVersion:
-			key = @"Version";
+			key = NSLocalizedString(@"SubHardVersion", nil);
 			value = SISGetKernOSVersion();
 			break;
 		case MDInfoTableViewDataSourceRowHardwareOSHostname:
-			key = @"Hostname";
+			key = NSLocalizedString(@"SubHardHost", nil);
 			value = SISGetKernHostname();
 			break;
 		case MDInfoTableViewDataSourceRowHardwareBootTime:
-			key = @"Boot Time";
+			key = NSLocalizedString(@"SubHardBoot", nil);
 			value = [df stringFromDate:SISGetKernBootTime()];
 			break;
 	}
@@ -224,9 +224,9 @@ typedef enum {
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section;
 {
 	switch (section) {
-		case MDInfoTableViewDataSourceSectionOS:       return @"iPhone OS";
-		case MDInfoTableViewDataSourceSectionEnv:      return @"Environment";
-		case MDInfoTableViewDataSourceSectionHardware: return @"Hardware";
+		case MDInfoTableViewDataSourceSectionOS:       return NSLocalizedString(@"SectionOS", nil);
+		case MDInfoTableViewDataSourceSectionEnv:      return NSLocalizedString(@"SectionEnv", nil);
+		case MDInfoTableViewDataSourceSectionHardware: return NSLocalizedString(@"SectionHard", nil);
 		default: return nil;
 	}
 }

@@ -1,0 +1,42 @@
+// MARK: Titles
+
+"TitleApp"   = "豆大福";
+"TitleIntro" = "自己紹介";
+"TitleInfo"  = "情報";
+
+// MARK: Sections
+
+"SectionPic"  = "写真";
+"SectionBio"  = "経歴";
+"SectionOS"   = "iPhone OS";
+"SectionEnv"  = "環境";
+"SectionHard" = "ハードウェア";
+
+// MARK: Subtitles
+
+"SubOSRun"       = "実行OS";
+"SubOSBuild"     = "ビルドSDK";
+"SubOSMin"       = "最小OS";
+"SubEnvArch"     = "アーキテクチャ";
+"SubEnvDevice"   = "デバイス";
+"SubHardMachine" = "機種名";
+"SubHardModel"   = "モデル";
+"SubHardNCPU"    = "CPUコア数";
+"SubHardRAM"     = "メモリ";
+"SubHardPage"    = "ページサイズ";
+"SubHardRelease" = "リリース";
+"SubHardVersion" = "バージョン";
+"SubHardHost"    = "ホスト名";
+"SubHardBoot"    = "起動時間";
+
+// MARK: Values
+
+"ValueARM" = "ARM";
+"ValueX86" = "Intel";
+"ValuePPC" = "PPC";
+"ValueDev" = "実機";
+"ValueSim" = "シミュレータ";
+
+// MARK: Phrases
+
+"PhraseIntro" = "初めまして、私は豆大福というiPhoneアプリです。いちご大福というiMac G4で開発されました。AppleはiPhone開発にIntel Macを必須としていたため、これは奇妙に思えるかもしれません。しかし、私が問題なく動作していることから、PowerPC MacでのiPhone開発は確かに可能だと同意していただけると思います。よろしくお願いします。";

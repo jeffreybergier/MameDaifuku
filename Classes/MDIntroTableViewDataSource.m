@@ -142,11 +142,7 @@ static       UIFont *kBioFont  = nil;
 	self = [super init];
 	NSParameterAssert(self);
 	_pic = [[UIImage imageNamed:@"profile.png"] retain];
-	_bio = @"Hello, I'm MameDaifuku, an iPhone App. I've been "
-	       @"developed and deployed on a very special iMac G4 "
-	       @"called IchigoDaifuku. Even though Apple never "
-	       @"allowed iPhone development on PowerPC Macs, I think "
-	       @"I am proof that it is indeed possible.";
+	_bio = NSLocalizedString(@"PhraseIntro", nil);
 	NSParameterAssert(_pic);
 	NSParameterAssert(_bio);
 	return self;
@@ -159,9 +155,9 @@ static       UIFont *kBioFont  = nil;
 	[[tableVC tableView] setDataSource:self];
 	[[tableVC tableView] setDelegate:self];
 	[[tableVC tableView] XP_setAllowsSelection:NO];
-	[tableVC setTitle:@"自己紹介"];
+	[tableVC setTitle:NSLocalizedString(@"TitleIntro", nil)];
 	[tableVC setTabBarItem:
-	 [[[UITabBarItem alloc] initWithTitle:@"自己紹介" 
+	 [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"TitleIntro", nil) 
 																	image:[UIImage imageNamed:@"address.png"] 
 																		tag:0] autorelease]];
 	return self;
@@ -184,13 +180,13 @@ static       UIFont *kBioFont  = nil;
 	NSString *reuseID = nil;
 	switch (indexPath.section) {
 		case 0:
-			reuseID = @"Pic";
+			reuseID = NSLocalizedString(@"SectionPic", nil);;
 			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
 			if (!cell) { cell = [[[MDIntroTableViewCellImage alloc] initWithReuseIdentifier:reuseID] autorelease]; }
 			[[(MDIntroTableViewCellImage*)cell MD_imageView] setImage:[self pic]];
 			break;
 		case 1:
-			reuseID = @"Bio";
+			reuseID = NSLocalizedString(@"SectionBio", nil);;
 			cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
 			if (!cell) { cell = [[[MDIntroTableViewCellLabel alloc] initWithReuseIdentifier:reuseID] autorelease]; }
 			[[(MDIntroTableViewCellLabel*)cell MD_textLabel] setText:[self bio]];
@@ -212,8 +208,8 @@ static       UIFont *kBioFont  = nil;
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section;
 {
 	switch (section) {
-		case 0:  return @"Pic";
-		case 1:  return @"Bio";
+		case 0:  return NSLocalizedString(@"SectionPic", nil);
+		case 1:  return NSLocalizedString(@"SectionBio", nil);
 		default: return nil;
 	}
 }

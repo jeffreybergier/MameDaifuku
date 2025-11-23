@@ -37,7 +37,7 @@
 	_window = window;
 	
 	// Configure Tab Bar
-	[tabBarController setTitle:@"豆大福"];	
+	[tabBarController setTitle:NSLocalizedString(@"TitleApp", nil)];	
 	[tabBarController setViewControllers:[NSArray arrayWithObjects:introVC, infoVC, nil]];
 	
 	// Configure Main Window

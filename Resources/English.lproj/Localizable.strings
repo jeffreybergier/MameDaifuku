@@ -1,0 +1,43 @@
+
+// MARK: Titles
+
+"TitleApp"   = "MameDaifuku";
+"TitleIntro" = "Intro";
+"TitleInfo"  = "Info";
+
+// MARK: Sections
+
+"SectionPic"  = "Pic";
+"SectionBio"  = "Bio";
+"SectionOS"   = "iPhone OS";
+"SectionEnv"  = "Environment";
+"SectionHard" = "Hardware";
+
+// MARK: Subtitles
+
+"SubOSRun"       = "Running OS";
+"SubOSBuild"     = "Build SDK";
+"SubOSMin"       = "Minimum OS";
+"SubEnvArch"     = "Architecture";
+"SubEnvDevice"   = "Device";
+"SubHardMachine" = "Hardware";
+"SubHardModel"   = "Model";
+"SubHardNCPU"    = "CPU Cores";
+"SubHardRAM"     = "Memory";
+"SubHardPage"    = "Page Size";
+"SubHardRelease" = "Release";
+"SubHardVersion" = "Version";
+"SubHardHost"    = "Hostname";
+"SubHardBoot"    = "Boot Time";
+
+// MARK: Values
+
+"ValueARM" = "ARM";
+"ValueX86" = "Intel";
+"ValuePPC" = "PPC";
+"ValueDev" = "Device";
+"ValueSim" = "Simulator";  
+
+// MARK: Phrases
+
+"PhraseIntro" = "Hello, I'm an iPhone App called MameDaifuku. I was developed on an iMac G4 called IchigoDaifuku. This might seem strange as Apple always required Intel Macs for iPhone development. But as I am running just fine, I think we can agree, iPhone development on PowerPC Macs is indeed possible.";

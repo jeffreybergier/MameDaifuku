@@ -21,11 +21,12 @@
 		8CB6D58C2ED2E639001F5B23 /* microchip@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5832ED2E639001F5B23 /* microchip@3x.png */; };
 		8CB6D58D2ED2E639001F5B23 /* microchip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5842ED2E639001F5B23 /* microchip@2x.png */; };
 		8CB6D58E2ED2E639001F5B23 /* microchip.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5852ED2E639001F5B23 /* microchip.png */; };
-		8CB6D58F2ED2E639001F5B23 /* address@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5862ED2E639001F5B23 /* address@3x.png */; };
+		8CB6D58F2ED2E639001F5B23 /* profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5862ED2E639001F5B23 /* profile@3x.png */; };
 		8CB6D5902ED2E639001F5B23 /* address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5872ED2E639001F5B23 /* address@2x.png */; };
 		8CB6D5912ED2E639001F5B23 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D5882ED2E639001F5B23 /* address.png */; };
 		8CC5165B2ECF3BF8009FF279 /* SystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC516592ECF3BF8009FF279 /* SystemInfo.m */; };
 		8CC516902ECF409B009FF279 /* MDInfoTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5168F2ECF409B009FF279 /* MDInfoTableViewDataSource.m */; };
+		8CF4CA482ED30DE0008F628B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CF4CA462ED30DE0008F628B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,20 +43,24 @@
 		8C7166AE2ED2EC8D00642486 /* XPCrossPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPCrossPlatform.m; sourceTree = "<group>"; };
 		8C961C622ED0930E002E34D4 /* MDInfoTableViewCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInfoTableViewCells.h; sourceTree = "<group>"; };
 		8C961C632ED0930E002E34D4 /* MDInfoTableViewCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDInfoTableViewCells.m; sourceTree = "<group>"; };
-		8CB6D5802ED2E639001F5B23 /* profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@3x.png"; sourceTree = "<group>"; };
-		8CB6D5812ED2E639001F5B23 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
-		8CB6D5822ED2E639001F5B23 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
-		8CB6D5832ED2E639001F5B23 /* microchip@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microchip@3x.png"; sourceTree = "<group>"; };
-		8CB6D5842ED2E639001F5B23 /* microchip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microchip@2x.png"; sourceTree = "<group>"; };
-		8CB6D5852ED2E639001F5B23 /* microchip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microchip.png; sourceTree = "<group>"; };
-		8CB6D5862ED2E639001F5B23 /* address@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "address@3x.png"; sourceTree = "<group>"; };
-		8CB6D5872ED2E639001F5B23 /* address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "address@2x.png"; sourceTree = "<group>"; };
-		8CB6D5882ED2E639001F5B23 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
+		8CB6D5802ED2E639001F5B23 /* profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@3x.png"; path = "Resources/profile@3x.png"; sourceTree = "<group>"; };
+		8CB6D5812ED2E639001F5B23 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = Resources/profile.png; sourceTree = "<group>"; };
+		8CB6D5822ED2E639001F5B23 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@2x.png"; path = "Resources/profile@2x.png"; sourceTree = "<group>"; };
+		8CB6D5832ED2E639001F5B23 /* microchip@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microchip@3x.png"; path = "Resources/microchip@3x.png"; sourceTree = "<group>"; };
+		8CB6D5842ED2E639001F5B23 /* microchip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microchip@2x.png"; path = "Resources/microchip@2x.png"; sourceTree = "<group>"; };
+		8CB6D5852ED2E639001F5B23 /* microchip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = microchip.png; path = Resources/microchip.png; sourceTree = "<group>"; };
+		8CB6D5862ED2E639001F5B23 /* profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@3x.png"; path = "Resources/profile@3x.png"; sourceTree = "<group>"; };
+		8CB6D5872ED2E639001F5B23 /* address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "address@2x.png"; path = "Resources/address@2x.png"; sourceTree = "<group>"; };
+		8CB6D5882ED2E639001F5B23 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = address.png; path = Resources/address.png; sourceTree = "<group>"; };
 		8CC514B32ECDEFEA009FF279 /* MameDaifuku_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MameDaifuku_Prefix.pch; sourceTree = "<group>"; };
 		8CC516592ECF3BF8009FF279 /* SystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfo.m; sourceTree = "<group>"; };
 		8CC5165A2ECF3BF8009FF279 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
 		8CC5168E2ECF409B009FF279 /* MDInfoTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInfoTableViewDataSource.h; sourceTree = "<group>"; };
 		8CC5168F2ECF409B009FF279 /* MDInfoTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDInfoTableViewDataSource.m; sourceTree = "<group>"; };
+		8CF4CA472ED30DE0008F628B /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8CF4CA492ED30DEE008F628B /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Resources/Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8CF4CA512ED30DF9008F628B /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Resources/Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8CF4CA532ED30E02008F628B /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +138,9 @@
 				8CB6D5832ED2E639001F5B23 /* microchip@3x.png */,
 				8CB6D5882ED2E639001F5B23 /* address.png */,
 				8CB6D5872ED2E639001F5B23 /* address@2x.png */,
-				8CB6D5862ED2E639001F5B23 /* address@3x.png */,
+				8CB6D5862ED2E639001F5B23 /* profile@3x.png */,
+				8CF4CA462ED30DE0008F628B /* Localizable.strings */,
+				8CF4CA502ED30DF9008F628B /* InfoPlist.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -177,6 +184,14 @@
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MameDaifuku" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				ja,
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* MameDaifuku */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -197,9 +212,10 @@
 				8CB6D58C2ED2E639001F5B23 /* microchip@3x.png in Resources */,
 				8CB6D58D2ED2E639001F5B23 /* microchip@2x.png in Resources */,
 				8CB6D58E2ED2E639001F5B23 /* microchip.png in Resources */,
-				8CB6D58F2ED2E639001F5B23 /* address@3x.png in Resources */,
+				8CB6D58F2ED2E639001F5B23 /* profile@3x.png in Resources */,
 				8CB6D5902ED2E639001F5B23 /* address@2x.png in Resources */,
 				8CB6D5912ED2E639001F5B23 /* address.png in Resources */,
+				8CF4CA482ED30DE0008F628B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +254,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8CF4CA462ED30DE0008F628B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CF4CA472ED30DE0008F628B /* English */,
+				8CF4CA492ED30DEE008F628B /* Japanese */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		8CF4CA502ED30DF9008F628B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CF4CA512ED30DF9008F628B /* Japanese */,
+				8CF4CA532ED30E02008F628B /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
