@@ -136,15 +136,15 @@ typedef enum {
 			break;
 		case MDInfoTableViewDataSourceRowHardwareNCPU:
 			key = NSLocalizedString(@"SubHardNCPU", nil);
-			value = [nf stringFromNumber:[NSNumber numberWithInteger:SISGetHWNCPU()]];
+			value = [nf stringFromNumber:[NSNumber numberWithUnsignedInt:SISGetHWNCPU()]];
 			break;
 		case MDInfoTableViewDataSourceRowHardwareMemSize:
 			key = NSLocalizedString(@"SubHardRAM", nil);
-			value = [nf stringFromNumber:[NSNumber numberWithInteger:SISGetHWMemSize()]];
+			value = [nf stringFromNumber:[NSNumber numberWithUnsignedLongLong:SISGetHWMemSize()]];
 			break;
 		case MDInfoTableViewDataSourceRowHardwarePageSize:
 			key = NSLocalizedString(@"SubHardPage", nil);
-			value = [nf stringFromNumber:[NSNumber numberWithInteger:SISGetHWPageSize()]];
+			value = [nf stringFromNumber:[NSNumber numberWithUnsignedLongLong:SISGetHWPageSize()]];
 			break;
 		case MDInfoTableViewDataSourceRowHardwareOSRelease:
 			key = NSLocalizedString(@"SubHardRelease", nil);

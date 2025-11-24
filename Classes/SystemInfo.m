@@ -41,9 +41,22 @@ static NSString *_SISStringForSpecifier(const char *specifier) {
 	return result;
 }
 
+// Helper function to safely query and return a 32-bit integer (uint32_t) value.
+static uint32_t _SISInt32ForSpecifier(const char *specifier) {
+	uint32_t value = 0;
+	size_t size = sizeof(value);
+	
+	if (sysctlbyname(specifier, &value, &size, NULL, 0) != 0) {
+		// Log an error if the call fails
+		NSLog(@"[SystemInfo] Error retrieving 32-bit integer for specifier: %s", specifier);
+		return 0;
+	}
+	return value;
+}
+
 // Helper function to safely query and return a 64-bit integer (uint64_t) value.
-static NSUInteger _SISInt64ForSpecifier(const char *specifier) {
-	NSUInteger value = 0;
+static uint64_t _SISInt64ForSpecifier(const char *specifier) {
+	uint64_t value = 0;
 	size_t size = sizeof(value);
 	
 	if (sysctlbyname(specifier, &value, &size, NULL, 0) != 0) {
@@ -82,18 +95,18 @@ NSString *SISGetHWModel(void) {
 	return _SISStringForSpecifier("hw.model");
 }
 
-NSUInteger SISGetHWNCPU(void) {
+uint32_t SISGetHWNCPU(void) {
 	// Specifier: "hw.ncpu".
-	return _SISInt64ForSpecifier("hw.ncpu");
+	return _SISInt32ForSpecifier("hw.ncpu");
 }
 
-NSUInteger SISGetHWMemSize(void) {
+uint64_t SISGetHWMemSize(void) {
 	// TODO: Confirm why this is 0 but other uses of _ function are not 0
 	// Specifier: "hw.memsize"
 	return _SISInt64ForSpecifier("hw.memsize");
 }
 
-NSUInteger SISGetHWPageSize(void) {
+uint64_t SISGetHWPageSize(void) {
 	// Specifier: "hw.pagesize"
 	return _SISInt64ForSpecifier("hw.pagesize");
 }
