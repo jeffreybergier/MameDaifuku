@@ -45,6 +45,8 @@
 		8C9002A62ED3655E008805E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8C961C622ED0930E002E34D4 /* MDInfoTableViewCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInfoTableViewCells.h; sourceTree = "<group>"; };
 		8C961C632ED0930E002E34D4 /* MDInfoTableViewCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDInfoTableViewCells.m; sourceTree = "<group>"; };
+		8C99AC372ED3E4EA007E844B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		8C99AC382ED3E500007E844B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8CB6D5802ED2E639001F5B23 /* profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@3x.png"; path = "Resources/profile@3x.png"; sourceTree = "<group>"; };
 		8CB6D5812ED2E639001F5B23 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = Resources/profile.png; sourceTree = "<group>"; };
 		8CB6D5822ED2E639001F5B23 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@2x.png"; path = "Resources/profile@2x.png"; sourceTree = "<group>"; };
@@ -110,6 +112,8 @@
 		29B97314FDCFA39411CA2CEA /* MameDaifuku */ = {
 			isa = PBXGroup;
 			children = (
+				8C99AC372ED3E4EA007E844B /* README.md */,
+				8C99AC382ED3E500007E844B /* LICENSE */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
