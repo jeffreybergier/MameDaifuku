@@ -48,7 +48,7 @@
 		8C1F4C772ED1B26B000FDC69 /* MDIntroTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDIntroTableViewDataSource.m; sourceTree = "<group>"; };
 		8C7166AD2ED2EC8D00642486 /* XPCrossPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPCrossPlatform.h; sourceTree = "<group>"; };
 		8C7166AE2ED2EC8D00642486 /* XPCrossPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPCrossPlatform.m; sourceTree = "<group>"; };
-		8C9002A62ED3655E008805E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8C9002A62ED3655E008805E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		8C961C622ED0930E002E34D4 /* MDInfoTableViewCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInfoTableViewCells.h; sourceTree = "<group>"; };
 		8C961C632ED0930E002E34D4 /* MDInfoTableViewCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDInfoTableViewCells.m; sourceTree = "<group>"; };
 		8C99AC372ED3E4EA007E844B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -148,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				8D1107310486CEB800E47090 /* Info.plist */,
+				8CF4CA462ED30DE0008F628B /* Localizable.strings */,
+				8CF4CA502ED30DF9008F628B /* InfoPlist.strings */,
 				8CB6D5812ED2E639001F5B23 /* profile.png */,
 				8CB6D5822ED2E639001F5B23 /* profile@2x.png */,
 				8CB6D5802ED2E639001F5B23 /* profile@3x.png */,
@@ -158,14 +160,12 @@
 				8CB6D5872ED2E639001F5B23 /* address@2x.png */,
 				8CB6D5862ED2E639001F5B23 /* profile@3x.png */,
 				8C9002A62ED3655E008805E6 /* Default.png */,
-				8C9F1B4E2ED3E84200DB351A /* Icon-Small.png */,
-				8C9F1B4F2ED3E84200DB351A /* Icon-Small@2x.png */,
-				8C9F1B502ED3E84200DB351A /* Icon-Small@3x.png */,
 				8C9F1B512ED3E84200DB351A /* Icon.png */,
 				8C9F1B522ED3E84200DB351A /* Icon@2x.png */,
 				8C9F1B532ED3E84200DB351A /* Icon@3x.png */,
-				8CF4CA462ED30DE0008F628B /* Localizable.strings */,
-				8CF4CA502ED30DF9008F628B /* InfoPlist.strings */,
+				8C9F1B4E2ED3E84200DB351A /* Icon-Small.png */,
+				8C9F1B4F2ED3E84200DB351A /* Icon-Small@2x.png */,
+				8C9F1B502ED3E84200DB351A /* Icon-Small@3x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
